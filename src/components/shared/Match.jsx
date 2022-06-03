@@ -14,9 +14,9 @@ function Match({ deleteFunction, identifier, playerOne, playerTwo, tourney, year
                     </div>
                     <div className='flex flex-col justify-center items-center'>
                         <h1 className='font-sans font-black text-black text-4xl'>{playerOne} vs {playerTwo}</h1>
-                        <h1 className='font-sans font-black italic text-black text-2xl'>{tourney} {year}</h1>
+                        <h1 className='font-sans font-black italic text-black text-2xl mb-3'>{tourney} {year}</h1>
                         <div className='flex flex-row'>
-                            <button onClick={deleteFunction(identifier)}>
+                            <button onClick={() => { deleteFunction(identifier) }}>
                                 <BsFillCheckCircleFill size={25} />
                             </button>
                         </div>

@@ -35,7 +35,7 @@ function InfoForm({ updateList }) {
     }
 
     return (
-        <>
+        <div>
             <div className='flex flex-row justify-center'>
                 <h1 className='font-sans font-black text-white text-5xl p-5'>---- Add a Match ----</h1>
             </div>
@@ -87,7 +87,7 @@ function InfoForm({ updateList }) {
                     </button>
                 </div>
             </form>
-        </>
+        </div>
 
     )
 }

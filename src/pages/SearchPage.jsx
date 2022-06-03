@@ -1,18 +1,19 @@
 import { Link } from 'react-router-dom'
+import SearchPlayers from '../components/SearchPlayers'
 
-function TrackPage() {
+function SearchPage() {
   return (
-    <>
+    <div>
       <section className='flex flex-row justify-center items-center'>
         <div className="tabs">
           <Link to='/'>
-            <div className="tab tab-bordered">Home</div>
+            <div className="tab tab-bordered">Watchlist</div>
           </Link>
           <Link to='/track'>
-            <div className="tab tab-bordered tab-active">Track A Player</div>
+            <div className="tab tab-bordered tab-active">Search Player</div>
           </Link>
-          <Link to='/watchlist'>
-            <div className="tab tab-bordered">Watchlist</div>
+          <Link to='/rankings'>
+            <div className="tab tab-bordered">Rankings</div>
           </Link>
           <Link to='/about'>
             <div className="tab tab-bordered">About</div>
@@ -20,9 +21,9 @@ function TrackPage() {
         </div>
       </section>
 
-      <div>TrackPage</div>
-    </>
+      <SearchPlayers />
+    </div>
   )
 }
 
-export default TrackPage
+export default SearchPage

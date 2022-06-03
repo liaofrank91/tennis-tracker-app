@@ -21,7 +21,7 @@ function Watchlist() {
 
     return (
         <>
-            <div className='bg-primary'>
+            <div className='bg-primary mt-3 mr-5 ml-5 mb-3 rounded-xl'>
                 <InfoForm updateList={updateEntries} />
             </div>
             <section id="match-list" className='flex flex-col justify-start items-center p-7' style={{ minHeight: '100vh' }}>
@@ -29,12 +29,12 @@ function Watchlist() {
                 <AnimatePresence>
                     {allEntries.map((item) => (
                         <motion.div
-                            key={item.id}
+                            key={item.unique}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                         >
-                            <Match deleteFunction={deleteEntry} key={item.unique} identifier={item.unique} playerOne={item.p1} playerTwo={item.p2} tourney={item.tourney} year={item.year} />
+                            <Match deleteFunction={deleteEntry} identifier={item.unique} playerOne={item.p1} playerTwo={item.p2} tourney={item.tourney} year={item.year} />
                         </motion.div>
                     ))}
                 </AnimatePresence>

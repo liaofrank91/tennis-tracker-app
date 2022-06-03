@@ -2,8 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css';
 
 // MAIN PAGES
-import HomePage from './pages/HomePage'
-import TrackPage from './pages/TrackPage'
+import RankingsPage from './pages/RankingsPage'
+import SearchPage from './pages/SearchPage'
 import WatchlistPage from './pages/WatchlistPage'
 import AboutPage from './pages/AboutPage'
 
@@ -12,13 +12,13 @@ function App() {
     <Router>
       <Routes>
         <Route exact path='/' element={
-          <HomePage />
+          <WatchlistPage />
         } />
         <Route path='/track' element={
-          <TrackPage />
+          <SearchPage />
         } />
-        <Route path='/watchlist' element={
-          <WatchlistPage />
+        <Route path='/rankings' element={
+          <RankingsPage />
         } />
         <Route path='/about' element={
           <AboutPage />
