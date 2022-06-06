@@ -132,6 +132,9 @@ function SearchPlayers() {
               </button>
             </div>
           ))}
+          <button onClick={resetEverything}>
+            <TiDeleteOutline />
+          </button>
         </div>
       )}
 
