@@ -2,7 +2,7 @@ _currently, only 250 API calls per month are supported (free version)_
 
 Deployed on Vercel: https://new-tennis-app.vercel.app/
 
-### Tennis Tracker app that lets you add verified matches to a watchlist, search for players, and view live rankings. 
+### A Tennis Tracker app that lets you add verified matches to a watchlist, search for players, and view live rankings. 
 
 ##### Covers both the ATP and WTA circuit.
 
