@@ -1,3 +1,5 @@
+_currently, only 250 API calls per month are supported (free version)_
+
 ### Tennis Tracker app that lets you add verified matches to a watchlist, search for players, and view live rankings. 
 
 ##### Covers both the ATP and WTA circuit.
