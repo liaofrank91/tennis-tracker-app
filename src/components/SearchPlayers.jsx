@@ -1,11 +1,16 @@
 // import { GiMagnifyingGlass } from "react-icons/gi"
+import PlayerPreview from "./PlayerPreview"
 import { BiTennisBall } from "react-icons/bi"
-import { BsFillArrowRightCircleFill } from "react-icons/bs"
-import { TiDeleteOutline } from "react-icons/ti";
 import { useState } from 'react'
+import { toast } from 'react-toastify'
+import { MdCancel } from "react-icons/md"
+import { GiTennisRacket } from "react-icons/gi"
+import Spinner from "./shared/Spinner"
+import PlayerFullView from "./PlayerFullView"
 
 function SearchPlayers() {
 
+  const [loading, setLoading] = useState(false)
   const [searchState, setSearchState] = useState('')
   const [tourState, setTourState] = useState('ATP')
   const [resultsList, setResultsList] = useState([])
@@ -15,38 +20,58 @@ function SearchPlayers() {
     player: {},
     triggerSearchForPlayer: false
   })
+  const options = {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Host': 'tennis-live-data.p.rapidapi.com',
+      'X-RapidAPI-Key': process.env.REACT_APP_API_KEY
+    }
+  }
 
   const handleSearch = async (e) => {
     e.preventDefault()
     if (searchState === '') {
-      alert('you CANNOT BE SERIOUS')
+      toast.error('you CANNOT BE SERIOUS')
     } else {
+      setLoading(true)
       const searchText = searchState.toLowerCase().trim()
       console.log(searchText)
 
-      // Fetch all players from the selected TOUR
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Host': 'tennis-live-data.p.rapidapi.com',
-          'X-RapidAPI-Key': '60d1aa11c0mshcb929fd10cfe2b2p15ad44jsn3661ce95e454'
-        }
-      }
-      const response = await fetch(`https://tennis-live-data.p.rapidapi.com/players/${tourState}`, options)
-      let data = await response.json()
-      data = data.results.players
-      data = data.filter((player) => (player.last_name.toLowerCase() === searchText))
+      try {
+        // Fetch all players from the selected TOUR, then filter 
+        const response = await fetch(`https://tennis-live-data.p.rapidapi.com/players/${tourState}`, options)
+        let data = await response.json()
+        data = data.results.players
+        data = data.filter((player) => (player.last_name.toLowerCase() === searchText))
+        console.log(data)
 
-      setResultsList(data)
-      setSearchState('')
-      setDisplayState({
-        ...displayState,
-        display: 'show-results'
-      })
+        setLoading(false)
+        setResultsList(data)
+        setSearchState('')
+        setDisplayState({
+          ...displayState,
+          display: 'show-results'
+        })
+
+        if (data.length === 0) {
+          toast.error("No results found :(")
+          console.log(searchText)
+          resetEverything()
+        }
+
+      } catch (error) {
+        setLoading(false)
+        resetEverything()
+        toast.error("Something went wrong...")
+      }
+
+
+
     }
   }
 
   const handlePlayerSelection = async (e) => {
+    setLoading(true)
     console.log(e.currentTarget.parentElement.id);
     setDisplayState(
       {
@@ -61,29 +86,29 @@ function SearchPlayers() {
   }
 
   const searchForPlayer = async () => {
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Host': 'tennis-live-data.p.rapidapi.com',
-        'X-RapidAPI-Key': '60d1aa11c0mshcb929fd10cfe2b2p15ad44jsn3661ce95e454'
-      }
+    try {
+      const response = await fetch(`https://tennis-live-data.p.rapidapi.com/player/${displayState.id}`, options)
+      let data = await response.json()
+      console.log(data)
+      // switches DISPLAY to 'show-player', sets PLAYER to the retrieved object, and switches OFF TRIGGERSEARCHFORPLAYER
+      setLoading(false)
+      setDisplayState({
+        ...displayState,
+        display: 'show-player',
+        player: data.results.player,
+        triggerSearchForPlayer: false,
+      })
+      toast.success("Player found!")
+      console.log(data.results.player)
+    } catch (error) {
+      toast.error("Something went wrong...")
+      console.log(displayState.id)
     }
-
-    console.log(displayState.id)
-    const response = await fetch(`https://tennis-live-data.p.rapidapi.com/player/${displayState.id}`, options)
-    let data = await response.json()
-    console.log(data)
-    // switches DISPLAY to 'show-player', sets PLAYER to the retrieved object, and switches OFF TRIGGERSEARCHFORPLAYER
-    setDisplayState({
-      ...displayState,
-      display: 'show-player',
-      player: data.results.player,
-      triggerSearchForPlayer: false,
-    })
 
   }
 
   const resetEverything = () => {
+    toast.success("Cleared")
     // reset searchState, DON'T TOUCH tourState, resultsList, displayState
     setSearchState('')
     setResultsList([])
@@ -101,6 +126,7 @@ function SearchPlayers() {
 
   return (
     <div >
+      {loading && <Spinner />}
       {/* Search */}
       <div className='m-5'>
         <div className='flex flex-row justify-center items-center'>
@@ -125,30 +151,20 @@ function SearchPlayers() {
       {(displayState.display === 'show-results') && (
         <div id="search-results" className='flex flex-col items-center'>
           {resultsList.map((player) => (
-            <div key={player.id} id={player.id} className='bg-primary flex flex-row'>
-              <h3>{player.full_name}</h3>
-              <button className='btn' onClick={handlePlayerSelection}>
-                <BsFillArrowRightCircleFill />
-              </button>
-            </div>
+            <PlayerPreview key={player.full_name} player={player} handlePlayerSelection={handlePlayerSelection}/>
           ))}
           <button onClick={resetEverything}>
-            <TiDeleteOutline />
+            <MdCancel />
           </button>
         </div>
       )}
 
       {/* Player Info - only display if (displayState.display === 'show-player') */}
       {(displayState.display === 'show-player') && (
-        <div>
-          <h1>hi</h1>
-          <h2>{displayState.player.full_name}</h2>
-          <button onClick={resetEverything}>
-            <TiDeleteOutline />
-          </button>
-        </div>
+        <PlayerFullView player={displayState.player} resetEverything={resetEverything}/>
       )}
 
+      {displayState.display === 'none' && <div className='flex flex-col justify-center items-center'><GiTennisRacket size={450} /></div>}
 
     </div>
   )
