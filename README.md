@@ -4,6 +4,6 @@
 
 ##### Built with React and Firebase (used Firebase Authentication, Firestore)
 
-API Limitations I've noticed (using _Tennis Live Data API_ from RapidAPI):  
+**API Limitations I've noticed (using _Tennis Live Data API_ from RapidAPI):**  
 - Player names with variable spelling can sometimes change. e.g. Djokovic <-> Dokovic
 - Data pertaining to RACE RANKINGS (Race Rank, Race Points) are incorrect/outdated
