@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { getAuth } from 'firebase/auth'
-import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore'
-import { doc, addDoc, deleteDoc, server, serverTimestamp } from 'firebase/firestore'
+import { collection, getDocs, query, where, limit } from 'firebase/firestore'
+import { doc, addDoc, deleteDoc } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import InfoForm from './InfoForm'
 import Match from './shared/Match'
 import Spinner from './shared/Spinner'
@@ -16,6 +16,7 @@ function Watchlist() {
     const auth = getAuth()
 
     const [allEntries, setAllEntries] = useState([])
+    // eslint-disable-next-line
     const [formData, setFormData] = useState({
         name: auth.currentUser.displayName,
         email: auth.currentUser.email,
@@ -25,6 +26,7 @@ function Watchlist() {
     const updateEntries = async (item) => {
         const newEntry = item
 
+        // eslint-disable-next-line
         const docRef = await addDoc(collection(db, 'matches'), newEntry)
         // setLoading(false)
         toast.success('Match saved')
@@ -97,6 +99,7 @@ function Watchlist() {
             }
         }
         fetchListings()
+        // eslint-disable-next-line
     }, [])
 
     return (

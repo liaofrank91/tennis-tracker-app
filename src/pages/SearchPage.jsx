@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import Navbar from '../components/shared/Navbar'
 import SearchPlayers from '../components/SearchPlayers'
 

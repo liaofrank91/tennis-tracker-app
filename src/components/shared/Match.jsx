@@ -13,7 +13,7 @@ function Match({ deleteFunction, identifier, playerOne, playerOneID, playerTwo, 
 
                     <div className="avatar">
                         <div className="w-24 rounded">
-                            <img src={playerImgs[playerOneID] ? playerImgs[playerOneID] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
+                            <img alt='player 1' src={playerImgs[playerOneID] ? playerImgs[playerOneID] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
                         </div>
                     </div>
                     <div className='flex flex-col justify-center items-center'>
@@ -30,7 +30,7 @@ function Match({ deleteFunction, identifier, playerOne, playerOneID, playerTwo, 
 
                     <div className="avatar">
                         <div className="w-24 rounded">
-                            <img src={playerImgs[playerTwoID] ? playerImgs[playerTwoID] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
+                            <img alt='player 2' src={playerImgs[playerTwoID] ? playerImgs[playerTwoID] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
                         </div>
                     </div>
 

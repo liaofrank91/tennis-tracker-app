@@ -6,7 +6,7 @@ function PlayerPreview({ player, handlePlayerSelection }) {
         <div id={player.id} className='bg-base-300 flex flex-row justify-between items-center p-3 m-2 rounded-xl' style={{ width: '25vw' }}>
             <div className="avatar">
                 <div className="w-20 rounded">
-                    <img src={playerImgs[player.id] ? playerImgs[player.id] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
+                    <img alt={player.full_name} src={playerImgs[player.id] ? playerImgs[player.id] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
                 </div>
             </div>
             <div className='prose'>

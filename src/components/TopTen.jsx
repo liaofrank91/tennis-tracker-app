@@ -43,6 +43,7 @@ function TopTen() {
   useEffect(() => {
     getTopTenPlayers('ATP')
     getTopTenPlayers('WTA')
+    // eslint-disable-next-line
   }, [])
 
   if (loading) {
@@ -68,7 +69,7 @@ function TopTen() {
                 <div className='flex flex-row'>
                   <div className="avatar m-5">
                     <div className="w-20 rounded-xl">
-                      <img src={playerImgs[player.id] ? playerImgs[player.id] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
+                      <img alt={player.full_name} src={playerImgs[player.id] ? playerImgs[player.id] : 'https://t4.ftcdn.net/jpg/03/31/38/97/360_F_331389703_cc98kdLkmBD7QeTA5NyhqnH3VLzudN75.jpg'} />
                     </div>
                   </div>
                   <div className='flex flex-col prose justify-center items-start'>
@@ -103,7 +104,7 @@ function TopTen() {
                 <div className='flex flex-row'>
                   <div className="avatar m-5">
                     <div className="w-20 rounded-xl">
-                      <img src={playerImgs[player.id] ? playerImgs[player.id] : 'https://www.pngitem.com/pimgs/m/59-597883_tennis-silhouette-tennis-player-silhouette-png-transparent-png.png'} />
+                      <img alt={player.full_name} src={playerImgs[player.id] ? playerImgs[player.id] : 'https://www.pngitem.com/pimgs/m/59-597883_tennis-silhouette-tennis-player-silhouette-png-transparent-png.png'} />
                     </div>
                   </div>
                   <div className='flex flex-col prose justify-center items-start'>

@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { db } from '../firebase.config'
@@ -7,7 +7,6 @@ import { FcGoogle } from "react-icons/fc"
 
 function OAuth() {
     const navigate = useNavigate()
-    const location = useLocation()
 
     const onGoogleClick = async () => {
         try {

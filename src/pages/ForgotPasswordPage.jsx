@@ -1,15 +1,12 @@
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
-import { BsFillEyeFill } from "react-icons/bs"
 import { FiArrowRightCircle } from "react-icons/fi"
 
 
 function ForgotPasswordPage() {
     const [email, setEmail] = useState('')
-
-    const navigate = useNavigate()
 
     const onChange = (e) => {
         setEmail(e.target.value)
