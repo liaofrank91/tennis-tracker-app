@@ -1,6 +1,6 @@
 const playerImgs = {
     // djokovic https://sportshub.cbsistatic.com/i/r/2022/05/25/904f8ca2-31f0-49a7-99b9-0e469f8bf95b/thumbnail/640x360/25250ebae2d6d1390f1b43288601c03f/djokovic-getty.jpg
-    89304: "https://www.tennisworldusa.org/imge/66376/novak-djokovic-speaks-about-his-special-celebration-at-the-end-of-the-match.jpg",
+    89304: "https://www.sportsnet.ca/wp-content/uploads/2021/07/Novak-Djokovic-Wimbledon-trophy-1040x572.jpg",
     // medvedev 
     981036: 'https://c.ndtvimg.com/2022-05/8epbrbdg_daniil-medvedev-afp_625x300_28_May_22.jpg?im=FeatureCrop,algorithm=dnn,width=806,height=605',
     // zverev
