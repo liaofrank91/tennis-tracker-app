@@ -1,4 +1,4 @@
-_currently, only 250 API calls per month are supported (free version)_
+_currently, only 250 API calls per month are supported (free version: https://rapidapi.com/sportcontentapi/api/tennis-live-data/)_
 
 Deployed on Vercel: https://new-tennis-app.vercel.app/
 
