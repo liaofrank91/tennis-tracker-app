@@ -74,7 +74,7 @@ function TopTen() {
                   </div>
                   <div className='flex flex-col prose justify-center items-start'>
                     <h2 className='mb-0'>{player.last_name.toUpperCase()}, {player.first_name}</h2>
-                    <h3 className='mt-0 italic'>{player.country}, {player.id}</h3>
+                    <h3 className='mt-0 italic'>{player.country}</h3>
                   </div>
                 </div>
                 {/* MIDDLE: num of points */}
@@ -109,7 +109,7 @@ function TopTen() {
                   </div>
                   <div className='flex flex-col prose justify-center items-start'>
                     <h2 className='mb-0'>{player.last_name.toUpperCase()}, {player.first_name}</h2>
-                    <h3 className='mt-0 italic'>{player.country}, {player.id}</h3>
+                    <h3 className='mt-0 italic'>{player.country}</h3>
                   </div>
                 </div>
                 {/* MIDDLE: num of points */}
