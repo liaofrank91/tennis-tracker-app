@@ -1,16 +1,18 @@
-_currently, only 250 API calls per month are supported (free version: https://rapidapi.com/sportcontentapi/api/tennis-live-data/)_
 
-Deployed on Vercel: https://new-tennis-app.vercel.app/
+**Deployed on Vercel**: https://new-tennis-app.vercel.app/
 
-### A Tennis Tracker app that lets you add verified matches to a watchlist, search for players, and view live rankings. 
+# Tennis Tracker App
+An app that lets you search for players, view live rankings, and add verified matches from the past that you might have missed to a watchlist.
 
-##### Covers both the ATP and WTA circuit.
+### Main Technologies Used
+* React for the frontend, as well as Tailwind and daisyUI for styling
+* Firebase Authentication and Google OAuth for authentication
+* Retrieved latest data from _Tennis Live Data_ API from RapidAPI
+* Deployed using Vercel
 
-##### Built with React and Firebase (used Firebase Authentication, Firestore)
-
+### Miscellaneous Notes
 **API Limitations I've noticed (using _Tennis Live Data API_ from RapidAPI):**  
 - Player names with variable spelling can sometimes change. e.g. Djokovic <-> Dokovic
-- Data pertaining to RACE RANKINGS (Race Rank, Race Points) are incorrect/outdated, whereas LIVE RANKING data is fine
-
+- _currently, only 250 API calls per month are supported (free version: https://rapidapi.com/sportcontentapi/api/tennis-live-data/)_
 **Things to work on next:**
-- accomodate for smaller screens, mobile screens, etc. 
+- better support for smaller screens, mobile screens, etc. 
