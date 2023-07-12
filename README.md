@@ -5,6 +5,7 @@
 An app that lets you search for players, view live rankings, and add verified matches from the past that you might have missed to a watchlist.
 
 ## Screenshots
+![image](https://github.com/liaofrank91/tennis-tracker-app/assets/45638876/3681ccc5-6665-40ee-b5b4-86b8dc17bd19)
 ![image](https://github.com/liaofrank91/tennis-tracker-app/assets/45638876/52dd2116-6319-4e29-a92d-b4f1bb2ad8cc)
 ![image](https://github.com/liaofrank91/tennis-tracker-app/assets/45638876/59ff0ab4-0df2-4ca1-a689-531ae5b2e5fc)
 ![image](https://github.com/liaofrank91/tennis-tracker-app/assets/45638876/20283d4f-06c9-4874-9866-1844d73da215)
